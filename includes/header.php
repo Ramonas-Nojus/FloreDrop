@@ -24,7 +24,8 @@
                 <li><a href="" class="nav-link">About</a></li>
                 <li><a href="contacts.php" class="nav-link">Contact</a></li>
                 <?php if(isset($_SESSION['id'])): ?>
-                    <li><a href="profile.php" class="nav-link">profile</a></li>
+                    <li><a href="profile.php" class="nav-link">Profile</a></li>
+                    <li><a href="add_product.php" class="nav-link">List Product</a></li>
                 <?php endif; ?>
             </ul>
         </nav>

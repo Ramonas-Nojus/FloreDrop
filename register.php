@@ -4,6 +4,13 @@
 
 <style>
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #009688;
+    margin: 0;
+    padding: 0;
+}
+
     .container {
         width: 400px;
         padding: 40px;

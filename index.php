@@ -1,4 +1,8 @@
-<?php include "includes/header.php" ?>
+<?php
+
+use function PHPSTORM_META\type;
+
+ include "includes/header.php" ?>
 <link rel="stylesheet" href="/style/style.css">
 
 <div class="hero-block-img">
@@ -25,59 +29,32 @@
     <h2>Most Popular Products</h2>
 
     <div class="container">
-        <a href="product.html" class="product-link">
-            <div class="product">
-                <img src="img/logo-color.png" alt="Product 1">
-                <h2>Product 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p class="price">$19.99</p>
-            </div>
-        </a>
     
-        <a href="product.html" class="product-link">
-            <div class="product">
-                <img src="img/logo-color.png" alt="Product 1">
-                <h2>Product 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p class="price">$19.99</p>
-            </div>
-        </a>
-    
-        <a href="product.html" class="product-link">
-            <div class="product">
-                <img src="img/logo-color.png" alt="Product 1">
-                <h2>Product 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p class="price">$19.99</p>
-            </div>
-        </a>
+        <?php 
 
-        <a href="product.html" class="product-link">
+            $products = new Products();
+
+
+            $top_products = $products->getPopularProducts();
+            
+            if(count($top_products) == 0){
+                echo "<h1 style='text-align: center;'>Sorry there is no products.<h1>";
+            } else {
+
+            foreach($top_products as $product){
+        ?>
+
+            <a href="product.php" class="product-link">
             <div class="product">
                 <img src="img/logo-color.png" alt="Product 1">
-                <h2>Product 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p class="price">$19.99</p>
+                <h2><?php echo $product['name']; ?></h2>
+                <p><?php echo $product['description']; ?>.</p>
+                <p class="price">$<?php echo $product['price']; ?></p>
             </div>
         </a>
-        <a href="product.html" class="product-link">
-            <div class="product">
-                <img src="img/logo-color.png" alt="Product 1">
-                <h2>Product 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p class="price">$19.99</p>
-            </div>
-        </a>
-        
-        <a href="product.html" class="product-link">
-            <div class="product">
-                <img src="img/logo-color.png" alt="Product 1">
-                <h2>Product 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p class="price">$19.99</p>
-            </div>
-        </a>
-        <!-- Add more product items here -->
+        <?php  } }?>
+
+
     </div>
     
 </div>

@@ -13,6 +13,13 @@ if(isset($_POST['email'])) {
 
 <style>
 
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #009688;
+        margin: 0;
+        padding: 0;
+    }
+
     .container {
         max-width: 400px;
         padding: 40px;
