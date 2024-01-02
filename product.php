@@ -1,18 +1,35 @@
 <?php include "includes/header.php" ?>
 <link rel="stylesheet" href="/style/style.css">
 
+<?php
+    if(isset($_GET['p_id'])){
+        $p_id = $_GET['p_id'];
 
+        $products = new Products();
+
+        $products->addView($p_id);
+    } else {
+        header("Location: index.php");
+    }
+
+    
+
+    $product = $products->getProduct($p_id);
+?>
+
+<div class="product-wrapper">
     <div class="product-preview">
-        <div class="product-image">
-            <img src="img/logo-color.png" alt="Product Preview">
-        </div>
+        <img src="img/<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
         <div class="product-details">
-            <h1>Product Name</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis, justo at fringilla finibus, ipsum leo tincidunt urna, ac vestibulum arcu est eu mauris.</p>
-            <p class="price">$19.99</p>
-            <button class="buy-button">Buy Now</button>
+            <h1><?php echo $product['name']; ?></h1>
+            <p><?php echo $product['description']; ?></p>
+            <p class="price">$<?php echo $product['price']; ?></p>
+            <div class="buy-button"><a href="product.php?<?php echo $p_id ?>&buy=true">Buy Now</a></div>
+            <div class="cart-button"><a  href="product.php?<?php echo $p_id ?>&add_to_cart=true">Add to cart</a></div>
         </div>
     </div>
+</div>
+
 
     <div class="related-products">
         <h2>Related Products</h2>

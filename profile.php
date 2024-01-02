@@ -97,18 +97,36 @@ if(isset($_GET['logout'])){
             </div>
         </section>
 
+
+<?php
+
+$product = new Products();
+
+$products = $product->getUsersProducts($_SESSION['username'])
+
+
+?>
+
         <section class="profile-section">
-            <h2>Recent Posts</h2>
-            <ul class="post-list">
-                <li>
-                    <h3>Exploring the Mountains</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac lacinia odio.</p>
-                </li>
-                <li>
-                    <h3>Capturing Memories</h3>
-                    <p>Nulla facilisi. Vestibulum tincidunt tellus vitae tortor euismod, non ultricies dui bibendum.</p>
-                </li>
-            </ul>
+            <button class="button active">Listed Products</button>
+            <button class="button unactive">My Orders</button>
+
+            <div class="my-products hide">
+                <ul class="products">
+                    <?php foreach($products as $row) { ?>
+                        <a href="product.php?p_id=<?php echo $row['id'] ?>" class="product-link">
+                            <div class="product-container">
+                                <li class="product-item">
+                                    <img class="product-image" style="height: 125px; border: 3px solid; border-radius: 5px; float: left" src="/img/<?php echo $row['image']; ?>" alt="">
+                                    <span class="product-name"><?php echo $row['name']; ?></span>
+                                    <span class="product-price">$<?php echo $row['price']; ?></span>
+                                    <p class="product-description"><?php echo $row['description']; ?></p>
+                                </li>
+                            </div>
+                        </a>
+                    <?php } ?>
+                </ul>
+            </div>    
         </section>
     </main>
 
@@ -116,5 +134,9 @@ if(isset($_GET['logout'])){
         <p>&copy; 2023 FloreDrop.</p>
     </footer>
 </body>
+
+<script>
+
+</script>
 
 </html>

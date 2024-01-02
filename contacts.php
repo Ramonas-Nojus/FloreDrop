@@ -17,7 +17,7 @@
 
         <section>
             <h2>Contact Form</h2>
-            <form action="submit_form.php" method="post">
+            <form class="center-form" action="submit_form.php" method="post">
                 <label for="name">Name:</label>
                 <input type="text" id="name" placeholder="Name" name="name" required>
 
@@ -26,8 +26,11 @@
 
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
+                
+                <div class="button-wrapper">
 
-                <button type="submit">Send</button>
+                    <button type="submit">Send</button>
+                </div>
             </form>
         </section>
     </main>

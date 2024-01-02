@@ -44,9 +44,9 @@ use function PHPSTORM_META\type;
             foreach($top_products as $product){
         ?>
 
-            <a href="product.php" class="product-link">
+            <a href="product.php?p_id=<?php echo $product['id'] ?>" class="product-link">
             <div class="product">
-                <img src="img/logo-color.png" alt="Product 1">
+                <img src="img/<?php echo $product['image'] ?>" alt="Product 1">
                 <h2><?php echo $product['name']; ?></h2>
                 <p><?php echo $product['description']; ?>.</p>
                 <p class="price">$<?php echo $product['price']; ?></p>

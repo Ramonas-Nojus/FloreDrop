@@ -37,8 +37,6 @@ class Products extends Db {
         return header('Location: search.php'); 
     }
 
-
-
     public function getRowsCount(){
         $sql = "SELECT COUNT(*) as count FROM products";
         $stmt = $this->connection()->prepare($sql);
@@ -46,4 +44,28 @@ class Products extends Db {
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result['count'];
     }
+
+    public function getProduct($p_id){
+        $sql = "SELECT * FROM products WHERE id = :p_id";
+        $stmt = $this->connection()->prepare($sql);
+        $stmt->bindValue("p_id", $p_id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function addView($p_id){
+        $sql = "UPDATE products SET views = views + 1 WHERE id = :p_id";
+        $stmt = $this->connection()->prepare($sql);
+        $stmt->bindValue("p_id", $p_id);
+        return $stmt->execute();
+    }
+
+    public function getUsersProducts($seller){
+        $sql = "SELECT * FROM products WHERE seller = :seller";
+        $stmt = $this->connection()->prepare($sql);
+        $stmt->bindValue("seller", $seller);
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
 }   

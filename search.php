@@ -34,9 +34,9 @@ $products = $product->getAllProducts($page_result, $per_page); ?>
 
         <?php foreach($products as $row) { ?>
 
-        <a href="product.php" class="product-link">
+        <a href="product.php?p_id=<?php echo $row['id'] ?>" class="product-link">
             <div class="product-container">
-                <img class="product-image" src="/img/<?php echo $row['image']; ?>" alt="">
+                <img class="product-image" style="width: 45%; border: 3px solid; border-radius: 5px" src="/img/<?php echo $row['image']; ?>" alt="">
                 <li class="product-item">
                     <span class="product-name"><?php echo $row['name']; ?></span>
                     <span class="product-price"><?php echo $row['price']; ?></span>

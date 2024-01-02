@@ -120,3 +120,43 @@ footer, footer {
       padding: 10px;
   }
 }
+
+
+/* Add styles for centering the form */
+.center-form {
+  margin: 0 auto;
+}
+
+/* Add minimalist styles to the form */
+.center-form label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.button-wrapper {
+  text-align: center;
+}
+
+.center-form input,
+.center-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.center-form button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.center-form button:hover {
+  background-color: #555;
+}
