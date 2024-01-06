@@ -10,7 +10,6 @@ h1 {
     font-size: 20px;
 }
 
-
 header {
     background-color: #009688;
     color: #ffffff;
@@ -22,16 +21,21 @@ header {
     width: 150px;
 }
 
+nav {
+    margin-top: 10px; 
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
+    flex-wrap: wrap; 
     justify-content: center;
 }
 
 nav li {
-    margin: 0 10px;
+    margin: 5px;
 }
 
 nav a {
@@ -39,11 +43,28 @@ nav a {
     text-decoration: none;
     font-size: 16px;
     font-weight: bold;
+    padding: 8px 10px; 
 }
 
 nav a:hover {
     text-decoration: underline;
 }
+
+@media only screen and (max-width: 600px) {
+    header {
+        padding: 10px;
+    }
+
+    nav {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    nav li {
+        margin: 5px 0; 
+    }
+}
+
 .container {
     max-width: 960px;
     margin: 0 auto;
@@ -190,8 +211,8 @@ footer p {
         background-color: #ffffff;
         border-radius: 20px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        margin-left: 20%; 
-        margin-right: 20%; 
+        margin-left: 15%; 
+        margin-right: 15%; 
 
     }
     
@@ -205,7 +226,6 @@ footer p {
     .product-details {
         padding: 40px;
         text-align: center;
-        width: 30%;
     }
     
     
@@ -295,3 +315,26 @@ footer p {
     text-decoration: none;
     color: #000;
 }
+
+
+
+/* Add media queries for responsive design */
+@media only screen and (max-width: 900px) {
+    .product-preview {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .product-preview img {
+        width: 100%;
+    }
+
+    .product-details {
+        width: 100%;
+    }
+
+}
+
+
+
+

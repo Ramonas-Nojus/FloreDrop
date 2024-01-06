@@ -8,59 +8,8 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/style/style.css">
     <link rel="stylesheet" href="./style/profile.css">
-    <style>
-        body {
-            background-color: #009688;
-            color: #fff;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .profile-section {
-            background-color: #fff;
-            width: 50%;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .profile-info img {
-            border: 1px solid #009688;
-            border-radius: 50%;
-            max-width: 100px;
-            max-height: 100px;
-            margin: 0 auto;
-            display: block;
-        }
-
-        .details p {
-            margin: 5px;
-        }
-
-        .post-list li {
-            list-style: none;
-            margin: 20px 0;
-            border: 1px solid #009688;
-            padding: 10px;
-            border-radius: 10px;
-            background-color: #fff;
-        }
-
-        main {
-            flex: 1;
-        }
-
-        footer {
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-        }
-    </style>
 </head>
 
 <?php 
