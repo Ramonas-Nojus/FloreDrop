@@ -128,3 +128,36 @@ a {
     text-decoration: none;
     color: black;
 }
+
+ul.pager {
+    list-style-type: none;
+    margin: 0 auto; 
+    padding: 0;
+    text-align: center; 
+  }
+  
+  ul.pager li {
+    display: inline-block;
+    margin-right: 5px; 
+  }
+  
+  ul.pager li a.active_link {
+    color: #fff;
+    background-color: #009688; 
+    padding: 5px 10px; 
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  ul.pager li a {
+    color: #007bff;
+    text-decoration: none;
+    padding: 5px 10px; 
+    border: 1px solid #007bff; 
+    border-radius: 5px; 
+  }
+  
+  ul.pager li a:hover {
+    background-color: #026d62; 
+  }
+  

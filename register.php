@@ -393,11 +393,12 @@ if(isset($_POST['submit'])){
             </div>
 
             <p><input type="checkbox" onclick="showPass()" style="float: left;">Show Password</p>
+            
             <div id="validate">
-                        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-                        <p id="number" class="invalid">A <b>number</b></p>
-                        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-                  </div>
+                <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                <p id="number" class="invalid">A <b>number</b></p>
+                <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+            </div>
 
             <label class="checkbox-container" >
                 <input type="checkbox" class="checkbox" name="privacy_policy" required style="margin-bottom: 10px;" required>

@@ -27,6 +27,7 @@
                     <li><a href="profile.php" class="nav-link">Profile</a></li>
                     <li><a href="add_product.php" class="nav-link">List Product</a></li>
                 <?php endif; ?>
+                <li><a><img src="/img/cart.png" style="width: 25px;"></a></li>
             </ul>
         </nav>
     </header>

@@ -24,7 +24,7 @@
             <h1><?php echo $product['name']; ?></h1>
             <p><?php echo $product['description']; ?></p>
             <p class="price">$<?php echo $product['price']; ?></p>
-            <div class="buy-button"><a href="product.php?<?php echo $p_id ?>&buy=true">Buy Now</a></div>
+            <br>
             <div class="cart-button"><a  href="product.php?<?php echo $p_id ?>&add_to_cart=true">Add to cart</a></div>
         </div>
     </div>
