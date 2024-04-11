@@ -8,6 +8,13 @@
         $products = new Products();
 
         $products->addView($p_id);
+
+        if(isset($_GET['add_to_cart'])){
+    
+            $products->addToCart($p_id);
+            
+        }
+
     } else {
         header("Location: index.php");
     }
@@ -25,7 +32,7 @@
             <p><?php echo $product['description']; ?></p>
             <p class="price">$<?php echo $product['price']; ?></p>
             <br>
-            <div class="cart-button"><a  href="product.php?<?php echo $p_id ?>&add_to_cart=true">Add to cart</a></div>
+            <div class="cart-button"><a  href="product.php?p_id=<?php echo $p_id ?>&add_to_cart=true">Add to cart</a></div>
         </div>
     </div>
 </div>

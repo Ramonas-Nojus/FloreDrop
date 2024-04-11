@@ -68,4 +68,20 @@ class Products extends Db {
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    public function addToCart($product_id){
+        
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = array();
+        } else if(!in_array($product_id, $_SESSION['cart'])){
+            $_SESSION['cart'][] = (int)$product_id;
+        }
+
+        if(isset($_SESSION['id'])){
+                
+        }
+
+        header("Location: product.php?p_id=$product_id");
+
+    }
+
 }   
