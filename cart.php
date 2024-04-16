@@ -52,8 +52,8 @@
             
                 ?>
             <tr>
-                <td><img src="/img/<?php echo $image ?>" width="115px"></td>
-                <td><?php echo $name ?></td>
+                <td><a href="/product.php?p_id=<?php echo $p_id ?>"><img src="/img/<?php echo $image ?>" width="115px"></a></td>
+                <td><a href="/product.php?p_id=<?php echo $p_id ?>"><?php echo $name ?></a></td>
                 <td><?php echo $price ?>$</td>
                 <td><a href="/cart.php?remove=<?php echo $p_id; ?>">remove</a></td>
 
@@ -67,7 +67,7 @@
     </div>
 
     <div class="checkout-button">
-        <button>Checkout</button>
+        <a class="button-link" href="/checkout.php">Checkout</a>
     </div>
 
     <?php } ?>
