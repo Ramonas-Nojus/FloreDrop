@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page | Verdivory</title>
+    <title>Home page | FloreDrop</title>
     <link rel = "icon" href = "../img/logo-no-background-favicon.png" type = "image/x-icon">
     <link rel = "icon" href = "../img/logo-no-background-favicon.png" type = "image/x-icon">
 
@@ -25,7 +25,6 @@
                 <li><a href="contacts.php" class="nav-link">Contact</a></li>
                 <?php if(isset($_SESSION['id'])): ?>
                     <li><a href="profile.php" class="nav-link">Profile</a></li>
-                    <li><a href="add_product.php" class="nav-link">List Product</a></li>
                 <?php endif; ?>
                 <li><a href="cart.php"><img src="/img/cart.png" style="width: 25px;" ><?php echo count($_SESSION['cart']) ?></a></li>
             </ul>

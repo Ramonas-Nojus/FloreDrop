@@ -2,22 +2,23 @@
 
 class Products extends Db {
 
-    public function getAllProducts($page_results, $per_page){
-        $sql = "SELECT * FROM products ORDER BY id DESC LIMIT ?, ?";
+    public function getAllProducts($page_results, $per_page, $category){
+        $sql = "SELECT * FROM products WHERE category = :category ORDER BY id DESC LIMIT :page_results, :per_page";
         $stmt = $this->connection()->prepare($sql);
-        $stmt->bindValue(1, $page_results, \PDO::PARAM_INT);
-        $stmt->bindValue(2, $per_page, \PDO::PARAM_INT);
+        $stmt->bindValue("page_results", $page_results, \PDO::PARAM_INT);
+        $stmt->bindValue("per_page", $per_page, \PDO::PARAM_INT);
+        $stmt->bindValue("category", $category);
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
     
 
-    public function getPopularProducts(){
-        $sql = "SELECT * FROM products ORDER BY views DESC LIMIT 6";
-        $stmt = $this->connection()->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
+    // public function getPopularProducts(){
+    //     $sql = "SELECT * FROM products ORDER BY views DESC LIMIT 6";
+    //     $stmt = $this->connection()->prepare($sql);
+    //     $stmt->execute();
+    //     return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    // }
 
     public function postProduct($seller, $price, $name, $category, $image, $description, $image_temp){
         $sql = "INSERT INTO products(seller, name, description, category,image, price, date, views) VALUE(:seller, :name, :description, :category, :image, :price, now(), 0)";
@@ -58,14 +59,6 @@ class Products extends Db {
         $stmt = $this->connection()->prepare($sql);
         $stmt->bindValue("p_id", $p_id);
         return $stmt->execute();
-    }
-
-    public function getUsersProducts($seller){
-        $sql = "SELECT * FROM products WHERE seller = :seller";
-        $stmt = $this->connection()->prepare($sql);
-        $stmt->bindValue("seller", $seller);
-        $stmt->execute();
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function addToCart($product_id){

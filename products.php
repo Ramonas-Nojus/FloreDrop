@@ -14,20 +14,19 @@ $page_result = ($page-1) * $per_page;
 
 $product = new Products();
 
-$count = $product->getRowsCount();
 
-$products = $product->getAllProducts($page_result, $per_page); ?>
+if(isset($_GET['category'])){
+    $category = $_GET['category'];
+
+    $count = $product->getRowsCount($category);
+    $products = $product->getAllProducts($page_result, $per_page, $category); 
+}
+?>
 
     <div class="container">
         <h1>Product Search</h1>
         <form class="search-form">
             <input type="text" id="search-input" placeholder="Enter product name">
-            <select id="category-select">
-                <option value="">All Categories</option>
-                <option value="electronics">Electronics</option>
-                <option value="clothing">Clothing</option>
-                <option value="home">Home</option>
-            </select>
             <button type="submit">Search</button>
         </form>
         <ul class="search-results" id="search-results">
@@ -62,6 +61,5 @@ $products = $product->getAllProducts($page_result, $per_page); ?>
       ?> 
       </ul>
     </div>
-
 </body>
 </html>

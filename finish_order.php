@@ -1,23 +1,17 @@
-<?php 
+<?php
+
+session_start();
+
+use Stripe\Climate\Order;
+
 require 'vendor/autoload.php';
 
-require 'inlcudes/autoload.php';
+require './includes/class.autoload.php';
 
 if(isset($_GET['KeyboardSizeValue'])){
-    $KeyboardSizeValue = $_GET['KeyboardSizeValue'];
-    $KeyboardColorValue = $_GET['KeyboardColorValue'];
-    $SwitchTypeValue = $_GET['SwitchTypeValue'];
-    $stabilizersValue = $_GET['stabilizersValue'];
-    $KeycapsValue = $_GET['KeycapsValue'];
-    $CableColorValue = $_GET['CableColorValue'];
 
-    $KeyboardColorImg = $_GET['KeyboardColorImg'];
-    $SwitchTypeImg = $_GET['SwitchTypeImg'];
-    $KeycapsImg = $_GET['KeycapsImg'];
-    $CableColorImg = $_GET['CableColorImg'];
-
-    $firstName = $_GET['firstName'];
-    $lastName = $_GET['lastName'];
+    $name = $_GET['name'];
+    $country = $_GET['country'];
     $city = $_GET['city'];
     $address = $_GET['address'];
     $postal_code = $_GET['postal_code'];
@@ -29,16 +23,19 @@ if(isset($_GET['KeyboardSizeValue'])){
     header('Location: index.php');
 }
 
-$components = $KeyboardSizeValue.','.$KeyboardColorValue.','.$SwitchTypeValue.','.$stabilizersValue.','.$KeycapsValue.','.$CableColorValue;
-$component_images = $KeyboardColorImg.','.$SwitchTypeImg.','.$KeycapsImg.','.$CableColorImg;
-
-
 $order_number = date('Ymd') . uniqid();
 
-$full_address = 'Lietuva, '. $city. ', '.$address.', '.$postal_code;
+$full_address = $country.', '. $city. ', '.$address.', '.$postal_code;
 
-$order = new Order;
-$order->addOrder($firstName.' '.$lastName, $email, $full_address, $components, $date, $price, $order_number, $component_images);
+$products = $_SESSION['cart'][0];
+
+for($i = 1; $i < count($_SESSION['cart']); $i++){
+    $products .= ",".$_SESSION['cart'][$i];
+}
+
+$order = new Orders;
+
+$order->addOrder($name, $email, $full_address, $products, $price, $seller_name);
 
 $html_content = "
 
@@ -54,7 +51,6 @@ $html_content = "
                 line-height: 1.6;
                 margin: 0;
                 padding: 0;
-                background: linear-gradient(90deg, rgba(75,24,210,1) 0%, rgba(125,17,185,1) 50%, rgba(58,7,101,1) 100%);
             }
 
             .container {

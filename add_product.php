@@ -11,6 +11,10 @@
 
 <?php 
 
+if(isset($_SESSION['id']) && $_SESSION['id'] == 1){
+    header("Location: index.php");
+}
+
 $products = new Products();
 
 if(isset($_POST['submit'])){
@@ -55,19 +59,16 @@ if(isset($_POST['submit'])){
 
         <label for="product_category">Category:</label>
         <select id="product_category" name="product_category" required>
-            <option value="electronics">Electronics</option>
-            <option value="clothing">Clothing</option>
-            <option value="books">Books</option>
-            <option value="home_decor">Home Decor</option>
-            <option value="sports">Sports</option>
-            <!-- Add more categories as needed -->
+            <option value="rings">Rings</option>
+            <option value="necklaces">necklaces</option>
+            <option value="bracelets">bracelets</option>
         </select>
 
         <input type="submit" name="submit" value="Add Product">
     </form>
 
     <footer>
-        <p>&copy; 2023 FloreDrop.</p>
+        <p>&copy; 2024 FloreDrop.</p>
     </footer>
 
     <script>

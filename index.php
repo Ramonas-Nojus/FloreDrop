@@ -1,67 +1,81 @@
-<?php
+<?php include "./includes/header.php"; ?>
 
-use function PHPSTORM_META\type;
-
- include "includes/header.php" ?>
 <link rel="stylesheet" href="/style/style.css">
 
-<div class="hero-block-img">
-        <div class="hero-content">
-            <h1>Buy and Sell Products</h1>
-            </div>
-    </div>
+<section class="hero">
+      <div class="container">
+        <h1>Welcome to FloreDrop</h1>
+        <p>Discover the epitome of elegance with our exquisite collection of jewelry.</p>
+      </div>
+    </section>
 
-<div class="hero-block">
-    <div class="hero-content">
-        <p>Discover a wide selection of products and start your online shopping experience today. Sell your own products and reach thousands of potential customers.</p>
-        <?php if(!isset($_SESSION['id'])){ ?>
-            <a href="login.php" class="hero-button sign-in">Sign In</a>
-            <a href="register.php" class="hero-button">Sign Up</a>
-        <?php } else { ?>
-            <a href="search.php" class="hero-button sign-in">Shop</a>
-        <?php } ?>
+    <section class="featured">
+      <h2>Featured Collections</h2>
+      <div class="container">
+        <div class="product">
+          <h3>Rings</h3>
+          <img src="./img/ring.png" alt="ring" width="250px">
+          <p><a class="btn" href="products.php?category=rings">Shop Rings</a></p>
+        </div>
+        
+        <div class="product">
+          <h3>Necklaces</h3>
+          <img src="./img/necklace.png" alt="necklace" width="250px">
+          <p><a class="btn" href="product.php?category=necklaces">Shop Necklaces</a></p>
+        </div>
+        
+        <div class="product">
+          <h3>Bracelets</h3>
+          <img src="./img/bracelet.png" alt="bracelet" width="250px">
+          <p><a class="btn" href="product.php?category=bracelets">Shop Bracelets</a></p>
+        </div>
+      </div>  
+    </section>
 
-    </div>
-</div>
+    <section class="newsletter">
+      <div class="container">
+        <h2>Stay Connected</h2>
+        <p>Sign up for our newsletter to receive updates on new collections, promotions, and exclusive offers.</p>
+        <form action="/subscribe" method="post">
+          <input type="email" name="email" placeholder="Enter your email address">
+          <button type="submit">Subscribe</button>
+        </form>
+        <p>We promise to never spam you!</p>
+      </div>
+    </section>
 
-<div class="popular-products">
-
-    <h2>Most Popular Products</h2>
-
-    <div class="container">
-    
-        <?php 
-
-            $products = new Products();
-
-
-            $top_products = $products->getPopularProducts();
-            
-            if(count($top_products) == 0){
-                echo "<h1 style='text-align: center;'>Sorry there is no products.<h1>";
-            } else {
-
-            foreach($top_products as $product){
-        ?>
-
-            <a href="product.php?p_id=<?php echo $product['id'] ?>" class="product-link">
-            <div class="product">
-                <img src="img/<?php echo $product['image'] ?>" alt="Product 1">
-                <h2><?php echo $product['name']; ?></h2>
-                <p><?php echo $product['description']; ?>.</p>
-                <p class="price">$<?php echo $product['price']; ?></p>
-            </div>
-        </a>
-        <?php  } }?>
-
-
-    </div>
-    
-</div>
+    <section class="faq">
+      <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <ul>
+          <li>
+            <span class="question">What is your return policy?</span>
+            <span class="answer">You can find our return policy details on our <a href="returns.html">Returns & Exchanges</a> page.</span>
+          </li>
+          <li>
+            <span class="question">Do you offer shipping internationally?</span>
+            <span class="answer">Yes, we ship internationally. See details on our <a href="shipping.html">Shipping Information</a> page.</span>
+          </li>
+          <li>
+            <span class="question">How can I care for my jewelry?</span>
+            <span class="answer">We provide jewelry care tips on our website and include a care card with every purchase.</span>
+          </li>
+        </ul>
+        <a href="faq.html" class="btn">View All FAQs</a>
+      </div>
+    </section>
 
     <footer>
-        <p>&copy; 2023 FloreDrop. All rights reserved.</p>
+      <div class="container">
+        <p>&copy; 2024 FloreDrop.</p>
+        <ul class="legal">
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="shipping.html">Shipping Information</a></li>
+        </ul>
+      </div>
     </footer>
-</body>
 
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit-code.js" crossorigin="anonymous"></script>
+  </body>
 </html>
