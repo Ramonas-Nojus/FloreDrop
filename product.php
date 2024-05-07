@@ -1,5 +1,5 @@
 <?php include "includes/header.php" ?>
-<link rel="stylesheet" href="/style/style.css">
+<link rel="stylesheet" href="/style/product.css">
 
 <?php
     if(isset($_GET['p_id'])){

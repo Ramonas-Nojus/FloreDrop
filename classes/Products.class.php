@@ -20,10 +20,9 @@ class Products extends Db {
     //     return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     // }
 
-    public function postProduct($seller, $price, $name, $category, $image, $description, $image_temp){
-        $sql = "INSERT INTO products(seller, name, description, category,image, price, date, views) VALUE(:seller, :name, :description, :category, :image, :price, now(), 0)";
+    public function postProduct($price, $name, $category, $image, $description, $image_temp){
+        $sql = "INSERT INTO products(name, description, category,image, price, date, views) VALUE(:name, :description, :category, :image, :price, now(), 0)";
         $stmt = $this->connection()->prepare($sql);
-        $stmt->bindValue("seller", $seller);
         $stmt->bindValue("name", $name);
         $stmt->bindValue("description", $description);
         $stmt->bindValue("category", $category);

@@ -11,7 +11,7 @@
 
 <?php 
 
-if(isset($_SESSION['id']) && $_SESSION['id'] == 1){
+if(!isset($_SESSION['id']) && $_SESSION['id'] != 1){
     header("Location: index.php");
 }
 
@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
     $image_temp = $_FILES["product_image"]["tmp_name"];
 
 
-    $products->postProduct($_SESSION['username'], $price, $name, $category, $image, $description, $image_temp);
+    $products->postProduct($price, $name, $category, $image, $description, $image_temp);
 
 }
 

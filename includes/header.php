@@ -20,12 +20,17 @@
         <nav>
             <ul>
                 <li><a href="index.php" class="nav-link">Home</a></li>
-                <li><a href="search.php" class="nav-link">Shop</a></li>
                 <li><a href="" class="nav-link">About</a></li>
                 <li><a href="contacts.php" class="nav-link">Contact</a></li>
-                <?php if(isset($_SESSION['id'])): ?>
+                    <?php if(isset($_SESSION['id'])){ 
+                            if($_SESSION['id'] == 1){ ?>
+                                <li><a href="add_product.php" class="nav-link">Add Product</a></li>
+                    <?php } ?>
                     <li><a href="profile.php" class="nav-link">Profile</a></li>
-                <?php endif; ?>
+                <?php } else { ?>
+                    <li><a href="register.php" class="nav-link">Sign Up</a></li>
+                    <li><a href="login.php" class="nav-link">Log In</a></li>
+                <?php } ?>
                 <li><a href="cart.php"><img src="/img/cart.png" style="width: 25px;" ><?php echo count($_SESSION['cart']) ?></a></li>
             </ul>
         </nav>
