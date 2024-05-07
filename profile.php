@@ -51,9 +51,6 @@ if(isset($_GET['logout'])){
 
 $product = new Products();
 
-$products = $product->getUsersProducts($_SESSION['username'])
-
-
 ?>
 
         <section class="profile-section">

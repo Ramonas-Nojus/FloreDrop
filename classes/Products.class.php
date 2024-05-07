@@ -34,7 +34,7 @@ class Products extends Db {
 
         move_uploaded_file($image_temp, $folder);
 
-        return header('Location: search.php'); 
+        return header('Location: products.php?category='.$category); 
     }
 
     public function getRowsCount(){
@@ -68,9 +68,9 @@ class Products extends Db {
             $_SESSION['cart'][] = (int)$product_id;
         }
 
-        if(isset($_SESSION['id'])){
+        // if(isset($_SESSION['id'])){
                 
-        }
+        // }
 
         header("Location: product.php?p_id=$product_id");
 

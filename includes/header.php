@@ -31,7 +31,7 @@
                     <li><a href="register.php" class="nav-link">Sign Up</a></li>
                     <li><a href="login.php" class="nav-link">Log In</a></li>
                 <?php } ?>
-                <li><a href="cart.php"><img src="/img/cart.png" style="width: 25px;" ><?php echo count($_SESSION['cart']) ?></a></li>
+                <li><a href="cart.php"><img src="/img/cart.png" style="width: 25px;" ><?php if(!isset($_SESSION['cart'])) { echo 0; } else { echo count($_SESSION['cart']); } ?></a></li>
             </ul>
         </nav>
     </header>

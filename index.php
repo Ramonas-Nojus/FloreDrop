@@ -21,13 +21,13 @@
         <div class="product">
           <h3>Necklaces</h3>
           <img src="./img/necklace.png" alt="necklace" width="250px">
-          <p><a class="btn" href="product.php?category=necklaces">Shop Necklaces</a></p>
+          <p><a class="btn" href="products.php?category=necklaces">Shop Necklaces</a></p>
         </div>
         
         <div class="product">
           <h3>Bracelets</h3>
           <img src="./img/bracelet.png" alt="bracelet" width="250px">
-          <p><a class="btn" href="product.php?category=bracelets">Shop Bracelets</a></p>
+          <p><a class="btn" href="products.php?category=bracelets">Shop Bracelets</a></p>
         </div>
       </div>  
     </section>

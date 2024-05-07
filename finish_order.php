@@ -8,7 +8,7 @@ require 'vendor/autoload.php';
 
 require './includes/class.autoload.php';
 
-if(isset($_GET['KeyboardSizeValue'])){
+if(isset($_GET['email'])){
 
     $name = $_GET['name'];
     $country = $_GET['country'];
@@ -35,7 +35,9 @@ for($i = 1; $i < count($_SESSION['cart']); $i++){
 
 $order = new Orders;
 
-$order->addOrder($name, $email, $full_address, $products, $price, $seller_name);
+$order->addOrder($name, $email, $full_address, $products, $price);
+
+unset($_SESSION['cart']);
 
 $html_content = "
 
