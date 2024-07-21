@@ -4,7 +4,7 @@
 <div class="cart-wrapper">
     <h1 class="cart-header">Shopping Cart</h1>
     
-    <?php if(count($_SESSION['cart']) == 0) { ?>
+    <?php if(!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) { ?>
 
         <div class="empty-cart">
             Your cart is currently empty.
@@ -25,6 +25,7 @@
         <tbody>
             <?php 
 
+            var_dump($_SESSION['cart']);
 
             if(isset($_GET['remove'])){
                 $remove_id = $_GET['remove'];

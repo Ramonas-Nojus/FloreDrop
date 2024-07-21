@@ -64,13 +64,11 @@ class Products extends Db {
         
         if (!isset($_SESSION['cart'])) {
             $_SESSION['cart'] = array();
+            $_SESSION['cart'][] = (int)$product_id;
+
         } else if(!in_array($product_id, $_SESSION['cart'])){
             $_SESSION['cart'][] = (int)$product_id;
         }
-
-        // if(isset($_SESSION['id'])){
-                
-        // }
 
         header("Location: product.php?p_id=$product_id");
 

@@ -37,7 +37,7 @@ $order = new Orders;
 
 $order->addOrder($name, $email, $full_address, $products, $price);
 
-unset($_SESSION['cart']);
+$_SESSION['cart'] = []; 
 
 $html_content = "
 
@@ -123,11 +123,11 @@ $html_content = "
                 <p><strong>Užsakymo Numeris: </strong> #$order_number</p>
                 <p><strong>Data:</strong> $date</p>
                 <p><strong>Bendra Suma:</strong> $price €</p>
-                <p><strong>Pirkėjas:</strong> $firstName $lastName</p>
+                <p><strong>Pirkėjas:</strong> $name</p>
                 <p><strong>El. paštas:</strong> $email</p>
                 <p><strong>Pristatymas:</strong> kurjeriu į namus</p>
                 <p><strong>Adresas:</strong> $address, $city, Lietuva, $postal_code</p>
-                <p>Daugiau informacijos apie savo užsakymą galite pažiurėti paspaude <a href='http://keyboardbuilder.local/order/$order_number'>šią nuorodą</a></p>
+                <p>Daugiau informacijos apie savo užsakymą galite pažiurėti paspaude <a href='http://floredrop.local/order/$order_number'>šią nuorodą</a></p>
             </div>
         </div>
     </body>
@@ -151,12 +151,20 @@ try {
     $mail->CharSet    = 'UTF-8';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'keyon.customs@gmail.com';
+    $mail->Username   = 'nojus.dev.test@gmail.com';
     $mail->Password   = getenv('GMAIL_APP_PASSWORD');
 
+
+    function console_log($data) {
+        $json_data = json_encode($data);
+        echo "<script>console.log($json_data);</script>";
+    }
+
+    console_log(getenv('GMAIL_APP_PASSWORD'));
+
     // Recipients
-    $mail->setFrom('keyon.customs@gmail.com', 'KeyON');
-    $mail->addAddress($email, $firstName . " " . $lastName);
+    $mail->setFrom('nojus.dev.test@gmail.com', 'FloreDrop');
+    $mail->addAddress($email, $name);
 
     // Content
     $mail->isHTML(true);
