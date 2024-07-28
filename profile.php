@@ -54,30 +54,32 @@ $product = new Products();
 ?>
 
         <section class="profile-section">
-            <button class="button active">Listed Products</button>
-            <button class="button unactive">My Orders</button>
+            <h2>My Orders</h2>
 
             <div class="my-products hide">
                 <ul class="products">
-                    <?php foreach($products as $row) { ?>
-                        <a href="product.php?p_id=<?php echo $row['id'] ?>" class="product-link">
-                            <div class="product-container">
-                                <li class="product-item">
-                                    <img class="product-image" style="height: 125px; border: 3px solid; border-radius: 5px; float: left" src="/img/<?php echo $row['image']; ?>" alt="">
-                                    <span class="product-name"><?php echo $row['name']; ?></span>
-                                    <span class="product-price">$<?php echo $row['price']; ?></span>
-                                    <p class="product-description"><?php echo $row['description']; ?></p>
-                                </li>
-                            </div>
-                        </a>
-                    <?php } ?>
+                    <?php 
+                    echo count($products);
+                    if(count($products) > 0){
+                        foreach($products as $row) { ?>
+                            <a href="product.php?p_id=<?php echo $row['id'] ?>" class="product-link">
+                                <div class="product-container">
+                                    <li class="product-item">
+                                        <img class="product-image" style="height: 125px; border: 3px solid; border-radius: 5px; float: left" src="/img/<?php echo $row['image']; ?>" alt="">
+                                        <span class="product-name"><?php echo $row['name']; ?></span>
+                                        <span class="product-price">$<?php echo $row['price']; ?></span>
+                                        <p class="product-description"><?php echo $row['description']; ?></p>
+                                    </li>
+                                </div>
+                            </a>
+                    <?php } } else { echo "You have no orders"; } ?>
                 </ul>
             </div>    
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 FloreDrop.</p>
+        <p>&copy; 2024 FloreDrop.</p>
     </footer>
 </body>
 

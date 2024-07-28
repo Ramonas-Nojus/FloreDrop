@@ -25,7 +25,9 @@
         <tbody>
             <?php 
 
-            var_dump($_SESSION['cart']);
+
+
+            $products = new Products;
 
             if(isset($_GET['remove'])){
                 $remove_id = $_GET['remove'];
@@ -34,11 +36,11 @@
 
                 unset($_SESSION['cart'][$index]);
 
+                $products->UpdateCart();
+
                 header("Location: /cart.php");
 
             }
-            
-            $products = new Products;
 
             $total = 0;
 

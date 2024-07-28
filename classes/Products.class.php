@@ -70,8 +70,20 @@ class Products extends Db {
             $_SESSION['cart'][] = (int)$product_id;
         }
 
+        $this->UpdateCart();
+
         header("Location: product.php?p_id=$product_id");
 
+    }
+
+    public function UpdateCart() {
+        if(isset($_SESSION['id'])){
+            $sql = "UPDATE users SET cart = :cart WHERE id = :id";
+            $stmt = $this->connection()->prepare($sql);
+            $stmt->bindValue("cart", serialize($_SESSION['cart']));
+            $stmt->bindValue("id", $_SESSION['id']);
+            return $stmt->execute();
+        }
     }
 
 }   

@@ -68,6 +68,8 @@ class Users extends Db {
             $_SESSION['email'] = $user[0]['email'];
             $_SESSION['image'] = $user[0]['image'];
             $_SESSION['country'] = $user[0]['country'];
+            $_SESSION['cart'] = unserialize($user[0]['cart']);
+
 
 
                 header('Location: /');
@@ -105,6 +107,8 @@ class Users extends Db {
         unset($_SESSION['email']);
         unset($_SESSION['image']);
         unset($_SESSION['country']);
+        unset($_SESSION['cart']);
+
 
         header("Location: /");
 
