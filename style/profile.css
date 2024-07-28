@@ -45,6 +45,7 @@ main {
 
 .profile-section {
   background-color: #fff;
+  color: black;
   width: 50%;
   margin: 0 auto;
   padding: 20px;
@@ -65,52 +66,94 @@ main {
   margin: 5px;
 }
 
-.products li {
-  list-style: none;
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: #f2f2f2;
-  transition: background-color 0.3s ease;
-  border-radius: 4px;
-  height: 150px;
+.profile-section {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
-.products a {
-  text-decoration: none;
+
+.profile-section h2 {
+  font-size: 24px;
   color: #333;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-.button {
-  padding: 12px 16px;
-  margin-left: 2%;
-  margin-right: 2%;
+/* Styles for the orders list */
+.orders {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Styles for individual order items */
+.order {
+  padding: 15px;
   margin-bottom: 10px;
-  border: 2px solid black;
-  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* Example of setting the gap using a CSS variable */
+.profile-section {
+    --order-info-gap: 25px; /* You can change this value as needed */
+}
+
+
+.order-id, .order-price, .order-date {
   font-size: 14px;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
+  color: #555;
 }
 
-.active:hover {
-  background-color: #00796b;
+.order-id {
+  font-weight: bold;
+  color: #000;
 }
 
-.unactive:hover {
-  background-color: #a1a1a1;
+.order-info {
+  display: flex;
+  flex-direction: row;
+  gap: var(--order-info-gap, 25px);
+  width: 100%;
 }
 
-.active {
-  background-color: #009688;
-  color: white;
+.order-info > span,
+.order-info > a {
+  flex-grow: 1; /* Allows items to grow and take up available space */
+  text-align: left;
 }
 
-.products li:hover {
-  background-color: #d8d8d8;
+.more-info-link {
+  font-size: 12px;
+  color: #007bff;
   text-decoration: none;
-
+  text-align: right; /* Aligns the link to the right within its flex item */
 }
 
-/* Footer Styles */
+.more-info-link:hover {
+  text-decoration: underline;
+}
+
+
+/* Styles for the "no orders" message */
+.no-orders {
+  text-align: center;
+  font-size: 16px;
+  color: #999;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+}
+
+
+
 footer {
   background-color: #333;
   color: #fff;

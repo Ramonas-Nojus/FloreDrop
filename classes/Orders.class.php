@@ -13,5 +13,13 @@ class Orders extends Db {
         $stmt->bindValue("price", $price);
         $stmt->execute();
     }
+
+    public function GetUsersOrder($id){
+        $sql = "SELECT * FROM orders WHERE buyer_id = :id ORDER BY date DESC";
+        $stmt = $this->connection()->prepare($sql);
+        $stmt->bindValue("id", $id);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     
 }
