@@ -3,17 +3,16 @@
 class Users extends Db {
 
 
-    public function register($username, $email, $password, $region) {
+    public function register($username, $email, $password) {
         if($this->checkUsername($username) && $this->checkEmail($email)) {
 
             $password = password_hash( $password, PASSWORD_BCRYPT, array('cost' => 12));
 
-            $sql = "INSERT INTO users(username, email, password, image, country) VALUES(:username, :email, :password, 'user-placeholdedr.png', :region)";
+            $sql = "INSERT INTO users(username, email, password, image,) VALUES(:username, :email, :password, 'user-placeholdedr.png')";
             $stmt = $this->connection()->prepare($sql);
             $stmt->bindValue("username", $username);
             $stmt->bindValue("email", $email);
             $stmt->bindValue("password", $password);
-            $stmt->bindValue("region", $region);
             $stmt->execute();
         }
     }
