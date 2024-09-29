@@ -17,7 +17,7 @@ class Users extends Db {
         }
     }
 
-    public function login($email, $password){
+    public function login($email, $password, $cart){
 
         $sql = "SELECT password FROM users WHERE email = :email";
         $stmt = $this->connection()->prepare($sql);
@@ -60,19 +60,16 @@ class Users extends Db {
             }
 
             $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            session_start();
+            
+            $combined_cart = array_merge(unserialize($user[0]['cart']), $cart);
 
             $_SESSION['id'] = $user[0]['id'];
             $_SESSION['username'] = $user[0]['username'];
             $_SESSION['email'] = $user[0]['email'];
             $_SESSION['image'] = $user[0]['image'];
-            $_SESSION['country'] = $user[0]['country'];
-            $_SESSION['cart'] = unserialize($user[0]['cart']);
+            $_SESSION['cart'] = $combined_cart;
 
-
-
-                header('Location: /');
-
+            header('Location: /');
         }
     }
 

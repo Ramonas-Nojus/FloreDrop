@@ -4,9 +4,17 @@
 <?php 
 
 $user = new Users;
+$products = new Products;
+
+if(isset($_SESSION['cart'])){
+    $cart = $_SESSION['cart'];
+} else {
+    $cart = array();
+}
 
 if(isset($_POST['email'])) {
-    $user->login($_POST['email'], $_POST['password']);
+    $user->login($_POST['email'], $_POST['password'], $cart);
+    $products->UpdateCart();
 }
 
 ?>
