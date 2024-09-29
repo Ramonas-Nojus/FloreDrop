@@ -104,7 +104,7 @@ if(isset($_POST['submit'])){
     $password = $_POST['password'];
 
     $user->register($username, $email, $password);
-    $user->login($email, $password);
+    $user->login($email, $password, array());
 
 }
 
