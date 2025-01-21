@@ -114,20 +114,20 @@ $html_content = "
     <body>
         <div class='container'>
             <div class='receipt-header'>
-                <h1>Pirkinio Kvitas</h1>
+                <h1>Purchase Receipt</h1>
             </div>
             <div class='receipt-details'>
-                <p>Sveiki,</p>
-                <p>Informuojame, kad gavome Jūsų užsakymą.</p>
+                <p>Hello,</p>
+                <p>We inform you that we have received your order.</p>
                 <br>
-                <p><strong>Užsakymo Numeris: </strong> #$order_number</p>
-                <p><strong>Data:</strong> $date</p>
-                <p><strong>Bendra Suma:</strong> $price €</p>
-                <p><strong>Pirkėjas:</strong> $name</p>
-                <p><strong>El. paštas:</strong> $email</p>
-                <p><strong>Pristatymas:</strong> kurjeriu į namus</p>
-                <p><strong>Adresas:</strong> $address, $city, Lietuva, $postal_code</p>
-                <p>Daugiau informacijos apie savo užsakymą galite pažiurėti paspaude <a href='http://floredrop.local/order/$order_number'>šią nuorodą</a></p>
+                <p><strong>Order Number: </strong> #$order_number</p>
+                <p><strong>Date:</strong> $date</p>
+                <p><strong>Total Amount:</strong> $price €</p>
+                <p><strong>Buyer:</strong> $name</p>
+                <p><strong>Email:</strong> $email</p>
+                <p><strong>Delivery:</strong> by courier to your home</p>
+                <p><strong>Address:</strong> $address, $city, Lithuania, $postal_code</p>
+                <p>You can view more information about your order by clicking <a href='http://floredrop.local/order_info/$order_number'>this link</a></p>
             </div>
         </div>
     </body>
