@@ -35,7 +35,7 @@ for($i = 1; $i < count($_SESSION['cart']); $i++){
 
 $order = new Orders;
 
-$order->addOrder($name, $email, $full_address, $products, $price);
+$order->addOrder($name, $email, $full_address, $products, $price, $order_number);
 
 $_SESSION['cart'] = []; 
 
@@ -127,7 +127,7 @@ $html_content = "
                 <p><strong>Email:</strong> $email</p>
                 <p><strong>Delivery:</strong> by courier to your home</p>
                 <p><strong>Address:</strong> $address, $city, Lithuania, $postal_code</p>
-                <p>You can view more information about your order by clicking <a href='http://floredrop.local/order_info/$order_number'>this link</a></p>
+                <p>You can view more information about your order by clicking <a href='http://floredrop.local/order_info.php?order_id=$order_number'>this link</a></p>
             </div>
         </div>
     </body>
