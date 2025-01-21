@@ -39,7 +39,6 @@ if(isset($_GET['logout'])){
                     
                     <p><strong>Username:</strong> <?php echo $_SESSION['username']; ?></p>
                     <p><strong>Email:</strong> <?php echo $_SESSION['email']; ?></p>
-                    <p><strong>Country:</strong> <?php echo $_SESSION['country'] ?></p>
 
                 </div>
                 <p style='text-align: right; padding-right: 50px'>

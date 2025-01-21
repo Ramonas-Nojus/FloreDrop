@@ -152,7 +152,7 @@ try {
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->SMTPAuth   = true;
     $mail->Username   = 'nojus.dev.test@gmail.com';
-    $mail->Password   = getenv('GMAIL_APP_PASSWORD');
+    $mail->Password   = getenv('GMAIL_TEST_PASSWORD');
 
 
     function console_log($data) {
