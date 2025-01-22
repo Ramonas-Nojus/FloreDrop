@@ -154,14 +154,6 @@ try {
     $mail->Username   = 'nojus.dev.test@gmail.com';
     $mail->Password   = getenv('GMAIL_TEST_PASSWORD');
 
-
-    function console_log($data) {
-        $json_data = json_encode($data);
-        echo "<script>console.log($json_data);</script>";
-    }
-
-    console_log(getenv('GMAIL_APP_PASSWORD'));
-
     // Recipients
     $mail->setFrom('nojus.dev.test@gmail.com', 'FloreDrop');
     $mail->addAddress($email, $name);

@@ -16,10 +16,10 @@ class Orders extends Db {
         $stmt->execute();
     }
 
-    public function GetUsersOrder($id){
-        $sql = "SELECT * FROM orders WHERE buyer_id = :id ORDER BY date DESC";
+    public function GetUsersOrder($email){
+        $sql = "SELECT * FROM orders WHERE buyer_email = :email ORDER BY id DESC";
         $stmt = $this->connection()->prepare($sql);
-        $stmt->bindValue("id", $id);
+        $stmt->bindValue("email", $email);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
