@@ -69,8 +69,7 @@ $orders = $order->GetUsersOrder($_SESSION['email'])
                                 <span class="order-id">Order ID: <?php echo $row['id']; ?></span>
                                 <span class="order-price">Price: $<?php echo $row['price']; ?></span>
                                 <span class="order-date">Date: <?php echo $row['date']; ?></span>
-                                <a href="./order_info.php?order_id=.
-                                <?php echo $row['order_number']; ?>" class="more-info-link">More Info</a>
+                                <a href="./order_info.php?order_id=<?php echo $row['order_number']; ?>" class="more-info-link">More Info</a>
                             </div>
                         </li>
                     <?php } 

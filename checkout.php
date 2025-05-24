@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 require_once './vendor/autoload.php';
 
 $stripeSecretKey = getenv('STRIPE_SECRET_KEY');
@@ -10,13 +12,13 @@ $stripe = new \Stripe\StripeClient($stripeSecretKey);
 if(isset($_POST['order'])){
     
     $name = $_POST['name'];
-    $email = $_POST['email'];
     $country = $_POST['country'];
     $city = $_POST['city'];
     $address = $_POST['address'];
     $postal_code = $_POST['postal-code'];
-
     $price = $_POST['price'];
+
+    $email = isset($_POST['email']) ? $_POST['email'] : $_SESSION['email'];
 
 
 } else {

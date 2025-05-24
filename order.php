@@ -24,8 +24,12 @@
                 <label for="name">Full Name:</label>
                     <input type="text" id="name" name="name" required>
 
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <?php if(!isset($_SESSION["id"])){ ?>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+
+                    <?php } ?>
                     
                     <label for="city">Country:</label>
                     <input type="text" id="country" name="country" required>

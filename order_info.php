@@ -19,7 +19,7 @@
     <div class="container">
     <h1>Order Information</h1>
     <div class="order-details">
-      <h2>Order <?php echo $id ?></h2>
+      <h2>Order<?php echo $id ?></h2>
       <div class="order-info">
         <span><strong>Order Date:</strong> <?php echo $order['date']; ?></span>
         <span><strong>Customer Name:</strong> <?php echo $order['buyer_name']; ?></span>
