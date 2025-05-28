@@ -11,14 +11,6 @@ class Products extends Db {
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
-    
-
-    // public function getPopularProducts(){
-    //     $sql = "SELECT * FROM products ORDER BY views DESC LIMIT 6";
-    //     $stmt = $this->connection()->prepare($sql);
-    //     $stmt->execute();
-    //     return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    // }
 
     public function postProduct($price, $name, $category, $image, $description, $image_temp){
         $sql = "INSERT INTO products(name, description, category,image, price, date, views) VALUE(:name, :description, :category, :image, :price, now(), 0)";
@@ -73,7 +65,6 @@ class Products extends Db {
         $this->UpdateCart();
 
         header("Location: product.php?p_id=$product_id");
-
     }
 
     public function UpdateCart() {
@@ -85,5 +76,4 @@ class Products extends Db {
             return $stmt->execute();
         }
     }
-
 }   

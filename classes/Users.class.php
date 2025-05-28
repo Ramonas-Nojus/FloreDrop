@@ -83,7 +83,6 @@ class Users extends Db {
         if($stmt->rowCount() > 0){
             return false;
         } return true;
-
     }
 
     public function checkEmail($email){
@@ -105,9 +104,6 @@ class Users extends Db {
         unset($_SESSION['country']);
         unset($_SESSION['cart']);
 
-
         header("Location: /");
-
     }
-
 }
