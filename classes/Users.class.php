@@ -24,13 +24,13 @@ class Users extends Db {
         $stmt->bindValue("email", $email);
         if(!$stmt->execute()) {
             $stmt = null;
-            header('Location: /login.php?error=failed');
+            header('Location: ./login.php?error=failed');
             exit();
         }
 
         if($stmt->rowCount() == 0){
             $stmt = null;
-            header('Location: /login.php?error=userNotFound');
+            header('Location: ./login.php?error=userNotFound');
             exit();
         }
 
@@ -40,7 +40,7 @@ class Users extends Db {
 
         if($check_password == false) {
             $stmt = null;
-            header('Location: /login.php?error=wrongPwd');
+            header('Location: ./login.php?error=wrongPwd');
             exit();
         } elseif ($check_password == true){
             $sql = "SELECT * FROM users WHERE email = :email";
@@ -49,13 +49,13 @@ class Users extends Db {
 
             if(!$stmt->execute()) {
                 $stmt = null;
-                header('Location: /login.php?error=failed');
+                header('Location: ./login.php?error=failed');
                 exit();
             }
     
             if($stmt->rowCount() == 0){
                 $stmt = null;
-                header('Location: /login.php?error=userNotFound');
+                header('Location: ./login.php?error=userNotFound');
                 exit();
             }
 
@@ -69,7 +69,7 @@ class Users extends Db {
             $_SESSION['image'] = $user[0]['image'];
             $_SESSION['cart'] = $combined_cart;
 
-            header('Location: /');
+            header('Location: ./');
         }
     }
 
@@ -104,6 +104,6 @@ class Users extends Db {
         unset($_SESSION['country']);
         unset($_SESSION['cart']);
 
-        header("Location: /");
+        header("Location: ./");
     }
 }

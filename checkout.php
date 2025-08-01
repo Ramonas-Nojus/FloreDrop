@@ -29,7 +29,7 @@ if(isset($_POST['order'])){
 
 \Stripe\Stripe::setApiKey($stripeSecretKey);
 
-$success_url =  'http://floredrop.local/finish_order.php?' .
+$success_url =  'https://orange-kudu-155499.hostingersite.com/finish_order.php?' .
                 '&name=' . urlencode($name) .
                 '&country=' . urlencode($country) .
                 '&city=' . urlencode($city) .
@@ -43,7 +43,7 @@ $checkout_session = \Stripe\Checkout\Session::create([
     "mode" => "payment",
     "success_url" => $success_url,
 
-    "cancel_url" => 'http://floredrop.local/index.php',
+    "cancel_url" => 'https://orange-kudu-155499.hostingersite.com/index.php',
     "line_items" => [
         [
             "quantity" => 1,

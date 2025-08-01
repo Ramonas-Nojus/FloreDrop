@@ -35,7 +35,7 @@ if(isset($_GET['category'])){
 
         <a href="product.php?p_id=<?php echo $row['id'] ?>" class="product-link">
             <div class="product-container">
-                <img class="product-image" src="/img/<?php echo $row['image']; ?>" alt="">
+                <img class="product-image" src="./img/<?php echo $row['image']; ?>" alt="">
                 <li class="product-item">
                     <span class="product-name"><?php echo $row['name']; ?></span>
                     <br>

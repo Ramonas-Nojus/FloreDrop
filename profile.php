@@ -19,7 +19,7 @@ use Stripe\Climate\Order;
 <?php 
 
 if(!isset($_SESSION['id'])){
-  header("Location: /");
+  header("Location: ./");
 }
 
 if(isset($_GET['logout'])){

@@ -36,7 +36,7 @@
       <div class="container">
         <h2>Stay Connected</h2>
         <p>Sign up for our newsletter to receive updates on new collections, promotions, and exclusive offers.</p>
-        <form action="/subscribe" method="post">
+        <form action="./subscribe" method="post">
           <input type="email" name="email" placeholder="Enter your email address">
           <button type="submit">Subscribe</button>
         </form>

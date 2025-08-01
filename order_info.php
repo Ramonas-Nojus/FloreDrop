@@ -2,7 +2,7 @@
 
     <?php if(isset($_GET['order_id'])){
             $id = $_GET['order_id'];
-    } else { header("Location: / "); }
+    } else { header("Location: ./ "); }
 
 
 
@@ -41,7 +41,7 @@
                         <a href="./product.php?p_id=<?php echo $p_id ?>">
                             <li class="product">
                                 <div class="order-info">
-                                    <img class="product-image" src="/img/<?php echo $product['image']; ?>">
+                                    <img class="product-image" src="./img/<?php echo $product['image']; ?>">
                                     <span class="product-price">Price: <?php echo $product['price']; ?>$</span>
                                     <span class="product-name">name: <?php echo $product['name']; ?></span>
 

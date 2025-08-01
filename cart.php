@@ -38,7 +38,7 @@
 
                 $products->UpdateCart();
 
-                header("Location: /cart.php");
+                header("Location: ./cart.php");
 
             }
 
@@ -55,10 +55,10 @@
             
                 ?>
             <tr>
-                <td><a href="/product.php?p_id=<?php echo $p_id ?>"><img src="/img/<?php echo $image ?>" width="115px"></a></td>
-                <td><a href="/product.php?p_id=<?php echo $p_id ?>"><?php echo $name ?></a></td>
+                <td><a href="./product.php?p_id=<?php echo $p_id ?>"><img src="./img/<?php echo $image ?>" width="115px"></a></td>
+                <td><a href="./product.php?p_id=<?php echo $p_id ?>"><?php echo $name ?></a></td>
                 <td><?php echo $price ?>$</td>
-                <td><a href="/cart.php?remove=<?php echo $p_id; ?>">remove</a></td>
+                <td><a href="./cart.php?remove=<?php echo $p_id; ?>">remove</a></td>
 
             </tr>
             <?php } ?>
@@ -70,7 +70,7 @@
     </div>
 
     <div class="checkout-button">
-        <a class="button-link" href="/order.php">Checkout</a>
+        <a class="button-link" href="./order.php">Checkout</a>
     </div>
 
     <?php } ?>
